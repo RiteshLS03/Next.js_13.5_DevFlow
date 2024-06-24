@@ -23,18 +23,33 @@
 
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  SignIn,
+  // SignInButton,
+  // SignedIn,
+  // SignedOut,
+  // SignIn,
   // UserButton,
 } from "@clerk/nextjs";
-import "./globals.css";
 import React from "react";
-// import { title } from "process";
+import { Inter, Space_Grotesk } from "next/font/google";
+import type { Metadata } from "next";
+import "./globals.css";
+// import LOGO from "./favicon.ico";
 
-export const metadata = {
-  title: "Next.js 13 with Ritesh",
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-spaceGrotesk",
+});
+
+export const metadata: Metadata = {
+  title: "Devflow",
+  description: "A Communtiy where dev can share the questions and the answers",
 };
 
 export default function RootLayout({
@@ -43,15 +58,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        elements: {
+          formButtonPrimary: "primary-gradient",
+          footerActionLink: "primary-text-gradient hover:text-primary-500",
+        },
+      }}
+    >
       <html lang="en">
-        <body>
-          {/* <SignedOut>
-            <SignInButton />
-          </SignedOut> */}
-          {/* <SignIn>
-            <UserButton />
-          </SignIn> */}
+        <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+          <h1 className="h1-bold">s a piece of text</h1>
           {children}
         </body>
       </html>
