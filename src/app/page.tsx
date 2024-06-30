@@ -113,11 +113,15 @@
 // }
 
 import { UserButton } from "@clerk/nextjs";
+// import { useTheme } from "./context/ThemeProvider";
 
 export default function Home() {
+  // const { mode } = useTheme();
   return (
     <div>
+      {/* {mode} */}
       <UserButton afterSignOutUrl="/sign-in" />
+      <h1>Hey Buddy</h1>
     </div>
   );
 }
