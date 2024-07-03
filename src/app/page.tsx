@@ -113,6 +113,7 @@
 // }
 
 import { UserButton } from "@clerk/nextjs";
+import Navbar from "./components/shared/Navbar/Navbar";
 // import { useTheme } from "./context/ThemeProvider";
 
 export default function Home() {
@@ -120,6 +121,7 @@ export default function Home() {
   return (
     <div>
       {/* {mode} */}
+      <Navbar />
       <UserButton afterSignOutUrl="/sign-in" />
       <h1>Hey Buddy</h1>
     </div>
